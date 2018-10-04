@@ -43,7 +43,7 @@ gulp.task('logTasks', function() {
   });
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', () => {
 
   isProdBuild = argv.prod;
 
@@ -63,7 +63,7 @@ gulp.task('serve', function() {
     return flowBeforeWatch;
 });
 
-gulp.task('build', function() {
+gulp.task('build', () => {
 
   return clean()
     .then(prepareAppBuildPromise());
