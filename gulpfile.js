@@ -33,8 +33,8 @@ var isProdBuild = false;
 var disableLiveReload = false;
 
 gulp.task('default', ['logTasks']);
-gulp.task('logTasks', () => {
-  process.nextTick(() => {
+gulp.task('logTasks', function() {
+  process.nextTick(function() {
     console.log();
     console.log('gulp serve           serves your app locally with a watch');
     console.log('gulp serve --prod    serves the production build of your app locally');
@@ -74,7 +74,7 @@ gulp.task('build', function() {
  ************************************/
 
 function clean() {
-  return new Promise(resolve => {
+  return new Promise(function(resolve) {
     exec('rm -rf '+buildDir);
     resolve();
   });
@@ -115,7 +115,7 @@ function prepareAssetsCompilePromise() {
 }
 
 function compileSass() {
-  return new Promise(resolve => {
+  return new Promise(function(resolve) {
     var stream = gulp.src('assets/scss/index.scss')
       .pipe(sass({
         errLogToConsole: true,
@@ -129,7 +129,7 @@ function compileSass() {
 }
 
 function copyImages() {
-  return new Promise(resolve => {
+  return new Promise(function(resolve) {
     gulp.src('assets/img/**/*')
       .pipe(gulp.dest(imgDir))
       .on('end', resolve);
@@ -137,7 +137,7 @@ function copyImages() {
 }
 
 function copyFonts() {
-  return new Promise(resolve => {
+  return new Promise(function(resolve) {
     gulp.src('assets/fonts/**/*')
       .pipe(gulp.dest(fontsDir))
       .on('end', resolve);
@@ -145,7 +145,7 @@ function copyFonts() {
 }
 
 function render() {
-  return new Promise(resolve => {
+  return new Promise(function(resolve) {
     gulp.src('index.html')
       .pipe(rename('index.html'))
       .pipe(gulp.dest(buildDir))
@@ -154,7 +154,7 @@ function render() {
 }
 
 function buildJsAppBundle( isProd ) {
-  return new Promise(resolve => {
+  return new Promise(function(resolve) {
     gulp.src('assets/js/index.js')
       .pipe(requireModules({dist: false}))
       // .pipe(browserify({
@@ -185,13 +185,13 @@ function startServer() {
 function watch() {
   var cssBuildPath = cssDir+'/**/*.css';
   gulp.watch('assets/scss/index.scss', compileSass);
-  gulp.watch(cssBuildPath, () => {
+  gulp.watch(cssBuildPath, function() {
     gulp.src(cssBuildPath).pipe(connect.reload());
   });
 
   gulp.watch('assets/js/index.js',
-    () => {
-      buildApp(false).then(() => {
+    function() {
+      buildApp(false).then(function() {
         gulp
           .src('assets/js/index.js')
           .pipe(connect.reload());
@@ -204,8 +204,8 @@ function watch() {
       'assets/img/**/*',
       'assets/fonts/**/*'
     ],
-    () => {
-      compileAssets().then(() => {
+    function() {
+      compileAssets().then(function() {
         gulp
           .src('assets/js/index.js')
           .pipe(connect.reload());
