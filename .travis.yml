@@ -3,3 +3,11 @@ before_script:
   - npm install -g gulp-cli
 script:
   - gulp build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as an environment variable
+  keep-history: false
+  local-dir: dist/
+  on:
+    branch: master
