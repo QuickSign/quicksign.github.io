@@ -1,0 +1,38 @@
+// ====== General =========================================================== //
+
+.offset-left-2 {
+	margin-left: 16.666667%;
+}
+
+.margin-top-off {
+	margin-top: 0;
+}
+
+.title-list {
+	margin-top: 20px;
+	font-weight: 700;
+}
+
+.description-list {
+	list-style: none;
+
+	& li {
+		margin-bottom: 7px;
+
+		& .main-name {
+			font-size: 25px;
+		}
+	}
+}
+
+.dropdown-item-img {
+	margin-right: 12px;
+}
+
+// ====== Hack Material UI ================================================== //
+
+.qs {
+	.navbar .navbar-brand {
+		font-size: 1.675rem;
+	}
+}
