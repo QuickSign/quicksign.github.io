@@ -109,6 +109,7 @@ function prepareAssetsCompilePromise() {
     promises.push(copyImages());
     promises.push(copyFonts());
     promises.push(render());
+    promises.push(copyCNAME());
 
     return Promise.all(promises);
   }
@@ -140,6 +141,14 @@ function copyFonts() {
   return new Promise(resolve => {
     gulp.src('assets/fonts/**/*')
       .pipe(gulp.dest(fontsDir))
+      .on('end', resolve);
+  });
+}
+
+function copyCNAME() {
+  return new Promise(resolve => {
+    gulp.src('CNAME')
+      .pipe(gulp.dest(buildDir))
       .on('end', resolve);
   });
 }
