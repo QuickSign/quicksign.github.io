@@ -1,0 +1,8 @@
+{
+  "material-kit/assets/js/core/jquery.min.js": "dist/node_modules/material-kit/assets/js/core/jquery.min.js",
+  "material-kit/assets/js/core/popper.min.js": "dist/node_modules/material-kit/assets/js/core/popper.min.js",
+  "material-kit/assets/js/core/bootstrap-material-design.min.js": "dist/node_modules/material-kit/assets/js/core/bootstrap-material-design.min.js",
+  "material-kit/assets/js/plugins/moment.min.js": "dist/node_modules/material-kit/assets/js/plugins/moment.min.js",
+  "material-kit/assets/js/plugins/jquery.sharrre.js": "dist/node_modules/material-kit/assets/js/plugins/jquery.sharrre.js",
+  "material-kit/assets/js/material-kit.js": "dist/node_modules/material-kit/assets/js/material-kit.js"
+}
